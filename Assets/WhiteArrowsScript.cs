@@ -206,7 +206,7 @@ public class WhiteArrowsScript : MonoBehaviour
         ColorBlindActive = Colorblind.ColorblindModeActive;
         if (ColorBlindActive)
         {
-            Debug.LogFormat("[Red Arrows #{0}] Colorblind mode active!", moduleId);
+            Debug.LogFormat("[White Arrows #{0}] Colorblind mode active!", moduleId);
             colorblindText.SetActive(true);
         }
     }
