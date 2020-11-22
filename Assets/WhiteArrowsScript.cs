@@ -80,12 +80,15 @@ public class WhiteArrowsScript : MonoBehaviour
 		},
 	};
 	
+	#pragma warning disable 0649
+    private bool TwitchPlaysActive;
+    #pragma warning restore 0649
+	float waitTime;
+	
     //Logging
     static int moduleIdCounter = 1;
     int moduleId;
     private bool ModuleSolved;
-	
-	
 
     void Awake()
     {
@@ -99,6 +102,12 @@ public class WhiteArrowsScript : MonoBehaviour
 				return false;
             };
         }
+		Module.OnActivate += WhiteArrowsOnTP;
+	}
+	
+	void WhiteArrowsOnTP()
+	{
+		waitTime = TwitchPlaysActive ? 12.5f : 8f;
 	}
 	
 	void PressArrow(int ArrowPos)
@@ -142,7 +151,7 @@ public class WhiteArrowsScript : MonoBehaviour
 	
 	IEnumerator TimerShenanigans()
 	{
-		yield return new WaitForSecondsRealtime(8f);
+		yield return new WaitForSecondsRealtime(waitTime);
 		Module.HandleStrike();
 		Debug.LogFormat("[White Arrows #{0}] Timer ran out. Module striked.", moduleId);
 		StartCoroutine(Blacken());
