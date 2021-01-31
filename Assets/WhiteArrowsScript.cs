@@ -83,7 +83,7 @@ public class WhiteArrowsScript : MonoBehaviour
 	#pragma warning disable 0649
     private bool TwitchPlaysActive;
     #pragma warning restore 0649
-	float waitTime;
+	float waitTime = 8f;
 	
     //Logging
     static int moduleIdCounter = 1;
@@ -107,7 +107,7 @@ public class WhiteArrowsScript : MonoBehaviour
 	
 	void WhiteArrowsOnTP()
 	{
-		waitTime = TwitchPlaysActive ? 12.5f : 8f;
+		waitTime = TwitchPlaysActive ? 18.5f : 8f;
 	}
 	
 	void PressArrow(int ArrowPos)
