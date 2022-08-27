@@ -13,6 +13,7 @@ public class WhiteArrowsScript : MonoBehaviour
     public KMBombInfo Bomb;
 	public KMBombModule Module;
     public KMColorblindMode Colorblind;
+	public KMRuleSeedable RuleSeed;
 
     public KMSelectable[] buttons;
     public GameObject numDisplay;
@@ -205,6 +206,23 @@ public class WhiteArrowsScript : MonoBehaviour
 
     void Start()
     {
+		var RuleSeedRNG = RuleSeed.GetRNG();
+		Debug.LogFormat("[White Arrows #{0}] Ruleseed Number: {1}", moduleId, RuleSeedRNG.Seed.ToString());
+		int[] Directions = Enumerable.Range(0,4).ToArray();
+		if (RuleSeedRNG.Seed != 1)
+		{
+			for (int x = 0; x < 8; x++)
+			{
+				for (int y = 0; y < 7; y++)
+				{
+					RuleSeedRNG.ShuffleFisherYates(Directions);
+					for (int z = 0; z < 4; z++)
+					{
+						Mazes[x][z][y] = Directions[z];
+					}
+				}
+			}
+		}
         Module.OnActivate += Generate;
 		StartCoroutine(ColorblindDelay());
     }

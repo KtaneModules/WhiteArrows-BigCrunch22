@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 114538656643595046}
   - component: {fileID: 114137747078870040}
   - component: {fileID: 114120984744657480}
+  - component: {fileID: 114298092303701492}
   m_Layer: 0
   m_Name: WhiteArrows
   m_TagString: Untagged
@@ -1314,6 +1315,7 @@ MonoBehaviour:
   Bomb: {fileID: 114375059033245494}
   Module: {fileID: 114235369766892872}
   Colorblind: {fileID: 114538656643595046}
+  RuleSeed: {fileID: 114298092303701492}
   buttons:
   - {fileID: 114804958025998850}
   - {fileID: 114323112331468364}
@@ -1421,6 +1423,18 @@ MonoBehaviour:
   ModuleType: WhiteArrows
   ModuleDisplayName: White Arrows
   RequiresTimerVisibility: 0
+--- !u!114 &114298092303701492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371807027823920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf69c2de51bd3c43bbd9bc22578ee08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seed: 1
 --- !u!114 &114299437252002108
 MonoBehaviour:
   m_ObjectHideFlags: 1
